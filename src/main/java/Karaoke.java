@@ -1,8 +1,8 @@
 import com.teamtreehouse.model.SongBook;
 
-public class Karaoke{
+public class Karaoke {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SongBook songBook = new SongBook();
         songBook.importFrom("songs.txt");
         KaraokeMachine machine = new KaraokeMachine(songBook);

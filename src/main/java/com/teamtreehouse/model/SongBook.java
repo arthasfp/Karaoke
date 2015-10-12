@@ -45,11 +45,11 @@ public class SongBook {
         return mSongs.size();
     }
 
-    private Map<String, List<Song>> byArtist(){
-        Map <String, List<Song>> byArtist = new TreeMap<>();
-        for (Song song : mSongs){
+    private Map<String, List<Song>> byArtist() {
+        Map<String, List<Song>> byArtist = new TreeMap<>();
+        for (Song song : mSongs) {
             List<Song> artistSongs = byArtist.get(song.getArtist());
-            if(artistSongs == null){
+            if (artistSongs == null) {
                 artistSongs = new ArrayList<>();
                 byArtist.put(song.getArtist(), artistSongs);
             }
@@ -58,16 +58,16 @@ public class SongBook {
         return byArtist;
     }
 
-    public Set<String> getArtists(){
+    public Set<String> getArtists() {
         return byArtist().keySet();
     }
 
-    public List<Song> getSongsForArtist(String artistName){
+    public List<Song> getSongsForArtist(String artistName) {
         List<Song> songs = byArtist().get(artistName);
         songs.sort(new Comparator<Song>() {
             @Override
             public int compare(Song song1, Song song2) {
-                if(song1.equals(song2)) {
+                if (song1.equals(song2)) {
                     return 0;
                 }
                 return song1.mTitle.compareTo(song2.mTitle);
